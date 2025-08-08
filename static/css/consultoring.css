@@ -1,0 +1,132 @@
+/* Hero Section */
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 30px;
+}
+
+.hero-info {
+  max-width: 600px;
+}
+
+.hero-info h1 {
+  font-size: var(--big-font-size);
+  color: var(--black-color);
+}
+
+.hero-info .description {
+  font-size: var(--medium-font-size);
+  color: var(--dark-gray-color);
+  margin-top: 20px;
+}
+
+.hero-info a {
+  color: var(--light-green-color);
+  text-decoration: none;
+}
+
+/* Services Section */
+#services {
+  padding: 50px 20px;
+  background-color: var(--gray-color);
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-item {
+  background-color: var(--white-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+}
+
+.service-item a {
+	text-decoration: none;
+}
+
+.service-item img {
+  /* width: 100%; */
+	margin: auto;
+	width: 4rem;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.service-item h2 {
+  font-size: var(--medium-font-size);
+  color: var(--black-color);
+}
+
+.service-item p {
+  font-size: var(--small-font-size);
+  color: var(--dark-gray-color);
+  margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.service-item .price {
+  font-size: var(--medium-font-size);
+  color: var(--light-green-color);
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.service-item button {
+  background-color: var(--light-green-color);
+  color: var(--white-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.service-item button:hover {
+  background-color: var(--black-color);
+}
+
+/* Responsividad */
+@media screen and (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .hero-image img {
+    margin-bottom: 20px;
+  }
+}

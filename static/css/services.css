@@ -1,0 +1,173 @@
+/* === services.css === */
+
+body {
+  background-color: var(--gray-color);
+}
+
+/* Layout principal de la sección del producto */
+.product-landing {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.product-hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+}
+.product-title img {
+  width: 100px;
+  margin: 10px;
+}
+
+.product-subtitle {
+  font-size: 1.25rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.product-founder-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+}
+.product-founder-note img {
+  width: 120px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.product-founder-note a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.product-founder-note a:hover {
+  text-decoration: underline;
+}
+
+/* Secciones internas */
+.product-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.product-bullets,
+.product-hours {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.product-hours-summary {
+  font-size: 1.1rem;
+  color: #222;
+  font-weight: 500;
+}
+
+/* Precio */
+.price p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e8e3e;
+}
+
+.product-price-note {
+  font-size: 0.95rem;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* CTA */
+.product-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cta-button {
+  background-color: #1e8e3e;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #157a2b;
+}
+
+.contact {
+	grid: none;
+}
+.section-title-container {
+	margin-top: 20px;
+}
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .product-title {
+    font-size: 1.8rem;
+  }
+  .product-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .product-founder-note img {
+    width: 80px;
+  }
+  .product-section h2 {
+    font-size: 1.3rem;
+  }
+  .product-hours-summary {
+    font-size: 1rem;
+  }
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-landing {
+    padding: 20px 16px;
+  }
+  .product-title {
+    font-size: 1.6rem;
+  }
+  .product-subtitle {
+    font-size: 1rem;
+  }
+}
