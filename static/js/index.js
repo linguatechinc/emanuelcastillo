@@ -1,118 +1,43 @@
-// get current year
-// let currentYear = document.getElementById('current_year_id');
-// year =  new Date().getFullYear();
-// currentYear.innerHTML = year
+const menuEl     = document.getElementById("menu");
+const openBtn    = document.getElementById("btn_menu_id");
+const closeBtn   = document.getElementById("close-menu-btn");
+const ctaContact = document.getElementById("hero_contact_btn_id");
+const showAllBtn = document.getElementById("show_all_about_btn_id");
 
-let open_menu_btn = document.getElementById("btn_menu_id");
-let menu_id = document.getElementById("menu");
-let close_menu_btn = document.getElementById('close-menu-btn');
-let show_all_about_info_btn = document.getElementById('show_all_about_btn_id');
-let show_all_experience_btn = document.getElementById("show_all_experiece_id")
-
-
-open_menu_btn.addEventListener("click", function(e) {
-    e.preventDefault();
-    menu_id.style.left = "0%";
-    menu_id.style.width = "100vw";
-    menu_id.style.backgroundColor = "#6fe64a59";
-    document.body.style.position = "fixed";
-
-})
-
-close_menu_btn.addEventListener("click", function(e){
-
-    e.preventDefault();;
-    menu_id.style.left = "-100vw";
-    document.body.style.position = "unset";
-    menu_id.style.backgroundColor = "unset";
-})
-
-document.getElementById("go_home_id").addEventListener("click", function(e) {
-    e.preventDefault();;
-    menu_id.style.left = "-100vw";
-    document.body.style.position = "unset";
-    menu_id.style.backgroundColor = "unset";
-})
-
-document.getElementById("go_about_id").addEventListener("click", function(e) {
-    e.preventDefault();;
-    menu_id.style.left = "-100vw";
-    document.body.style.position = "unset";
-    menu_id.style.backgroundColor = "unset";
-    document.getElementById("about-section-id").scrollIntoView({behavior: 'smooth'});
-})
-
-document.getElementById("go_project_id").addEventListener("click", function(e) {
-    e.preventDefault();;
-    menu_id.style.left = "-100vw";
-    document.body.style.position = "unset";
-    menu_id.style.backgroundColor = "unset";
-    document.getElementById("project-section-id").scrollIntoView({behavior: 'smooth'});
-})
-
-document.getElementById("go_experience_id").addEventListener("click", function(e) {
-    e.preventDefault();;
-    menu_id.style.left = "-100vw";
-    document.body.style.position = "unset";
-    menu_id.style.backgroundColor = "unset";
-    document.getElementById("experience-section-id").scrollIntoView({behavior: 'smooth'});
-})
-
-document.getElementById("go_contact_id").addEventListener("click", function(e) {
-    e.preventDefault();;
-    menu_id.style.left = "-100vw";
-    document.body.style.position = "unset";
-    menu_id.style.backgroundColor = "unset";
-    document.getElementById("contact-section-id").scrollIntoView({behavior: 'smooth'});
-})
-
-show_all_about_info_btn.addEventListener("click", function(e) {
-    e.preventDefault();
-
-    if (show_all_about_info_btn.textContent === "Show All") {
-        document.getElementById('description-second-paragraph').style.display = "block";
-        show_all_about_info_btn.textContent = "Show Less";
-
-    } else {
-        document.getElementById('description-second-paragraph').style.display = "none";
-        show_all_about_info_btn.textContent = "Show All";
-    }
-})
-
-
-show_all_experience_btn.addEventListener("click", function(e) {
-    e.preventDefault();
-    let hidden_experience = document.getElementsByClassName("hidden-experience-desktop");
-
-    if (show_all_experience_btn.textContent === "Show All") {
-        
-        for (let experience of hidden_experience) {
-            experience.style.display = "block";
-        }
-        show_all_experience_btn.textContent = "Show Less";
-    } else {
-        show_all_experience_btn.textContent = "Show All";
-        for (let experience of hidden_experience) {
-            experience.style.display = "none";
-        }
-    }
-})
-
-let experience_items = document.getElementsByClassName("experience-item-container");
-for (let experience_item of experience_items) {
-    experience_item.addEventListener("click", function(e) {
-        e.preventDefault();
-
-        console.log(experience_item.parentElement.children[1].children[0]);
-
-        let short_title_id = document.getElementById("short_title_id");
-        let green_title_id = document.getElementById("green_title_id");
-        let experience_duration_id = document.getElementById("experience_duration_id");
-        let experience_item_description = document.getElementById("experience_item_description");
-
-        short_title_id.innerHTML                = experience_item.parentElement.children[1].children[0].textContent;
-        green_title_id.innerHTML                = experience_item.parentElement.children[1].children[1].textContent;
-        experience_duration_id.innerHTML        = experience_item.parentElement.children[1].children[2].textContent;
-        experience_item_description.innerHTML   = experience_item.parentElement.children[1].children[3].textContent;
-    })
+function openMenu() {
+    menuEl.style.left = "0";
+    document.body.style.overflow = "hidden";
 }
+
+function closeMenu() {
+    menuEl.style.left = "-100vw";
+    document.body.style.overflow = "";
+}
+
+openBtn .addEventListener("click", e => { e.preventDefault(); openMenu(); });
+closeBtn.addEventListener("click", e => { e.preventDefault(); closeMenu(); });
+
+function navTo(sectionId) {
+    closeMenu();
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+}
+
+document.getElementById("go_home_id")      .addEventListener("click", e => { e.preventDefault(); closeMenu(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+document.getElementById("go_about_id")     .addEventListener("click", e => { e.preventDefault(); navTo("about-section-id"); });
+document.getElementById("go_milestones_id").addEventListener("click", e => { e.preventDefault(); navTo("milestones-section-id"); });
+document.getElementById("go_contact_id")   .addEventListener("click", e => { e.preventDefault(); navTo("contact-section-id"); });
+
+ctaContact.addEventListener("click", e => { e.preventDefault(); navTo("contact-section-id"); });
+
+showAllBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    const para = document.getElementById("description-second-paragraph");
+    if (this.textContent === "Show All") {
+        para.style.display = "block";
+        this.textContent = "Show Less";
+    } else {
+        para.style.display = "none";
+        this.textContent = "Show All";
+    }
+});
